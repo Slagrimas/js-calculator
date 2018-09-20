@@ -5,13 +5,91 @@
  * @variable PRIVATE { Number } `total`
  * @return {object} `calculator` object that can be used
  */
+var calculatorModule = (function () { 
+    let memory = 0;
+    let total = 0;
 
+
+
+
+    function load(num) {
+        total = num;
+        return total;
+    }
+
+    function getTotal(){
+        return total;
+
+
+    }
+
+    function add(num){
+        total = num + getTotal();
+        return total
+
+
+    }
+
+    function subtract(num){
+        total = getTotal() - num;
+        return total;
+
+
+    }
+
+    function multiply(num){
+        total = num * getTotal();
+        return total;
+
+
+    }
+
+    function divide(num){
+        total = getTotal()/num;
+        return total;
+
+
+    }
+
+    function recallMemory(){
+        return memory;
+
+
+    }
+
+    function saveMemory(num2){
+        memory = getTotal();
+        return memory;
+
+
+    }
+
+    function clearMemory(){
+        memory = 0;
+        return memory;
+
+
+    }
+
+    return {
+        load: load,
+        getTotal: getTotal,
+        add: add,
+        subtract: subtract,
+        multiply: multiply,
+        divide: divide,
+        recallMemory: recallMemory,
+        saveMemory: saveMemory,
+        clearMemory: clearMemory
+    }
+});
 
   /**
    * sets the `total` to the number passed in
    * @param  { Number } x
    * @return { Number }    current total
    */
+
 
 
   /**
