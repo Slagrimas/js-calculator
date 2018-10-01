@@ -5,84 +5,89 @@
  * @variable PRIVATE { Number } `total`
  * @return {object} `calculator` object that can be used
  */
-var calculatorModule = (function () { 
-    let memory = 0;
-    let total = 0;
 
-
-
-
-    function load(num) {
-        total = num;
-        return total;
-    }
-
-    function getTotal(){
-        return total;
-
-
-    }
-
-    function add(num){
-        total = num + getTotal();
-        return total
-
-
-    }
-
-    function subtract(num){
-        total = getTotal() - num;
-        return total;
-
-
-    }
-
-    function multiply(num){
-        total = num * getTotal();
-        return total;
-
-
-    }
-
-    function divide(num){
-        total = getTotal()/num;
-        return total;
-
-
-    }
-
-    function recallMemory(){
-        return memory;
-
-
-    }
-
-    function saveMemory(num2){
-        memory = getTotal();
-        return memory;
-
-
-    }
-
-    function clearMemory(){
-        memory = 0;
-        return memory;
-
-
-    }
+var calculatorModule = function() {
+    var memory = 0;
+    var total = 0;
 
     return {
-        load: load,
-        getTotal: getTotal,
-        add: add,
-        subtract: subtract,
-        multiply: multiply,
-        divide: divide,
-        recallMemory: recallMemory,
-        saveMemory: saveMemory,
-        clearMemory: clearMemory
+        // memory: memory,
+        // total: total,
+    // function validate(num) {
+    //     if(typeof num !== 'number') {
+    //         throw err;
+    //     }
+    // }
+        load: function(num) {
+            if (typeof num === 'number') {
+                return total = num;
+            }
+            else {
+                throw err;
+            }
+            
+            // return total = num;
+        },
+
+        getTotal: function() {
+            return total;
+        },
+        add: function(num) {
+            if (typeof num === 'number') {
+                return total += num;
+            }
+            else {
+                throw err;
+            }
+            // return total += num;
+
+        },
+
+        subtract: function(num) {
+            if (typeof num === 'number') {
+                return total -= num;
+            }
+            else {
+                throw err;
+            }
+            // return total -= num;
+        },
+
+        multiply: function(num) {
+            if (typeof num === 'number') {
+                return total *= num;
+            }
+            else {
+                throw err;
+            }
+            // return total *= num;
+        },
+        divide: function(num) {
+            if (typeof num === 'number') {
+                return total /= num;
+            }
+            else {
+                throw err;
+            }
+            // return total /= num;
+        },
+        
+        recallMemory: function() {
+            return memory;
+        },
+
+        saveMemory: function() {
+            return memory = total;
+        },
+
+        clearMemory: function() {
+            return memory = 0;
+        
+        }
+
     }
-});
+
+};
 
   /**
    * sets the `total` to the number passed in
@@ -140,4 +145,3 @@ var calculatorModule = (function () {
   /**
    * Validation
    */
-
